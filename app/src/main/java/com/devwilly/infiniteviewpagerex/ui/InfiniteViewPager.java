@@ -1,5 +1,7 @@
 package com.devwilly.infiniteviewpagerex.ui;
 
+import com.devwilly.infiniteviewpagerex.InfiniteViewPagerAdapter;
+
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;

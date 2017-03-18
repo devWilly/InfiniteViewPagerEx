@@ -1,7 +1,6 @@
 package com.devwilly.infiniteviewpagerex;
 
 import com.devwilly.infiniteviewpagerex.ui.InfiniteViewPager;
-import com.devwilly.infiniteviewpagerex.ui.InfiniteViewPagerAdapter;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
