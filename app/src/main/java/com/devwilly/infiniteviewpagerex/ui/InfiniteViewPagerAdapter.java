@@ -1,10 +1,10 @@
 package com.devwilly.infiniteviewpagerex.ui;
 
-import com.devwilly.infiniteviewpagerex.MainActivity;
-
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +16,28 @@ import java.util.List;
 
 public class InfiniteViewPagerAdapter extends PagerAdapter {
 
+    private Context mContext;
     private List<Integer> mImageList = new ArrayList<>();
 
     public InfiniteViewPagerAdapter(Context context, List<Integer> imageList) {
+        this.mContext = context;
         this.mImageList = imageList;
+    }
+
+    @Override
+    public Object instantiateItem(ViewGroup container, int position) {
+        final int virtualPosition = position % getRealCount();
+
+        ImageView img = new ImageView(mContext);
+        img.setImageResource(mImageList.get(virtualPosition));
+        container.addView(img);
+
+        return img;
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        container.removeView((View) object);
     }
 
     @Override
@@ -41,6 +59,6 @@ public class InfiniteViewPagerAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return false;
+        return view == object;
     }
 }
