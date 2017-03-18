@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         InfiniteViewPagerAdapter adapter = new InfiniteViewPagerAdapter(this, imageList);
 
+        viewPager.setOffscreenPageLimit(2);
+        viewPager.setAdapter(adapter);
+
 
     }
 }
